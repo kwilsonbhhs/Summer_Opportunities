@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Summer Programs Directory — Byram Hills High School School Counseling</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400&family=Merriweather:wght@400;700;900&display=swap" rel="stylesheet" />
+<style>
+  doc-page:not(:defined) { visibility: hidden; }
+  a { color: #1f4e8c; }
+  a:hover { color: #14284b; }
+  .entry { break-inside: avoid; }
+</style>
+<script src="./doc-page.js"></script>
+</helmet>
+<doc-page margin="0.7in">
+
+  <div slot="footer" style="font-family: Lato, Helvetica, Arial, sans-serif; font-size: 8.5pt; color: #7b8798; border-top: 1px solid #d3dbe7; padding-top: 6pt; display: flex; justify-content: space-between; gap: 12pt;">
+    <span>{{ t.footerLeft }}</span>
+    <span>{{ t.footerRight }}</span>
+  </div>
+
+  <div style="font-family: Lato, Helvetica, Arial, sans-serif; color: #222c3a;">
+
+    <div style="border-bottom: 4px solid #14284b; padding-bottom: 14pt; margin-bottom: 20pt; display: flex; gap: 18pt; align-items: flex-start; justify-content: space-between;">
+      <div>
+        <div style="font-size: 9pt; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #1f4e8c; margin-bottom: 8pt;">{{ t.district }}</div>
+        <h1 style="font-family: Merriweather, Georgia, serif; font-size: 27pt; line-height: 1.15; margin: 0 0 8pt; color: #14284b;">{{ t.title }}</h1>
+        <div style="font-size: 12.5pt; color: #4a5568; line-height: 1.5;">{{ t.subtitle }}</div>
+      </div>
+      <a href="https://www.byramhills.org/guidance" style="flex: none; line-height: 0;"><img src="assets/bhhs-shield.png" alt="Byram Hills High School" style="display: block; height: 66pt; width: auto;" /></a>
+    </div>
+
+    <div style="background: #f2f5f9; border-left: 4px solid #9e1b32; padding: 13pt 15pt; margin-bottom: 22pt; break-inside: avoid;">
+      <div style="font-family: Merriweather, Georgia, serif; font-size: 12pt; font-weight: 700; color: #14284b; margin-bottom: 6pt;">{{ t.howTitle }}</div>
+      <div style="font-size: 11pt; line-height: 1.55; color: #3c4759;">{{ t.howBody }}</div>
+    </div>
+
+    <div style="margin-bottom: 24pt; break-inside: avoid;">
+      <div style="font-family: Merriweather, Georgia, serif; font-size: 13pt; font-weight: 700; color: #14284b; margin-bottom: 9pt;">{{ t.contents }}</div>
+      <table style="width: 100%; border-collapse: collapse; font-size: 11pt;">
+        <sc-for list="{{ toc }}" as="row" hint-placeholder-count="9">
+          <tr>
+            <td style="padding: 5pt 0; border-bottom: 1px dotted #c9d2df; color: #222c3a;">{{ row.label }}</td>
+            <td style="padding: 5pt 0; border-bottom: 1px dotted #c9d2df; text-align: right; color: #6b7789; white-space: nowrap;">{{ row.count }}</td>
+          </tr>
+        </sc-for>
+      </table>
+    </div>
+
+    <sc-for list="{{ sections }}" as="sec" hint-placeholder-count="9">
+      <section style="margin-bottom: 22pt;">
+        <h2 style="font-family: Merriweather, Georgia, serif; font-size: 15pt; color: #fff; background: #14284b; border-left: 7pt solid #9e1b32; padding: 7pt 11pt; margin: 0 0 14pt; letter-spacing: 0.01em;">{{ sec.label }}</h2>
+        <sc-for list="{{ sec.items }}" as="p" hint-placeholder-count="6">
+          <div class="entry" style="margin-bottom: 13pt; padding-bottom: 11pt; border-bottom: 1px solid #e6ebf2;">
+            <div style="font-size: 12.5pt; font-weight: 900; color: #14284b; line-height: 1.3;">{{ p.s }}</div>
+            <div style="font-size: 9.5pt; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: #9e1b32; margin: 3pt 0 5pt;">{{ p.meta }}</div>
+            <div style="font-size: 11pt; line-height: 1.5; color: #3c4759; margin-bottom: 4pt;">{{ p.desc }}</div>
+            <a href="{{ p.url }}" style="font-size: 9.5pt; word-break: break-all; text-decoration: none;">{{ p.url }}</a>
+          </div>
+        </sc-for>
+      </section>
+    </sc-for>
+
+    <section style="break-before: page;">
+      <h2 style="font-family: Merriweather, Georgia, serif; font-size: 15pt; color: #fff; background: #14284b; border-left: 7pt solid #9e1b32; padding: 7pt 11pt; margin: 0 0 14pt;">{{ t.planTitle }}</h2>
+      <table style="width: 100%; border-collapse: collapse; font-size: 11pt;">
+        <sc-for list="{{ timeline }}" as="m" hint-placeholder-count="6">
+          <tr class="entry">
+            <td style="width: 118pt; padding: 8pt 12pt 8pt 0; vertical-align: top; font-weight: 900; color: #1f4e8c; border-bottom: 1px solid #e6ebf2;">{{ m.when }}</td>
+            <td style="padding: 8pt 0; vertical-align: top; line-height: 1.5; color: #3c4759; border-bottom: 1px solid #e6ebf2;">{{ m.what }}</td>
+          </tr>
+        </sc-for>
+      </table>
+      <div style="margin-top: 18pt; background: #f2f5f9; border-left: 4px solid #9e1b32; padding: 13pt 15pt; break-inside: avoid;">
+        <div style="font-family: Merriweather, Georgia, serif; font-size: 12pt; font-weight: 700; color: #14284b; margin-bottom: 6pt;">{{ t.counselorTitle }}</div>
+        <div style="font-size: 11pt; line-height: 1.55; color: #3c4759;">{{ t.counselorBody }}</div>
+      </div>
+    </section>
+
+  </div>
+</doc-page>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;docLang&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;en&quot;,&quot;es&quot;],&quot;default&quot;:&quot;en&quot;,&quot;tsType&quot;:&quot;\&quot;en\&quot; | \&quot;es\&quot;&quot;,&quot;section&quot;:&quot;Language&quot;}}">
+const CATS = [
+  ["academics", "General Academics at a College or University", "Académicos generales en una universidad"],
+  ["arts", "Visual & Performing Arts", "Artes visuales y escénicas"],
+  ["language", "Language", "Idiomas"],
+  ["writing", "Writing & Journalism", "Escritura y periodismo"],
+  ["stem", "STEM & Medicine", "STEM y medicina"],
+  ["leadership", "Leadership", "Liderazgo"],
+  ["research", "Research", "Investigación"],
+  ["internships", "Internships", "Prácticas profesionales"],
+  ["adventure", "Education, Special Interests & Adventure", "Educación, intereses especiales y aventura"]
+];
+const LOCS = { nyc: ["NY metro & Westchester", "Área de NY y Westchester"], ne: ["New England", "Nueva Inglaterra"], mid: ["Mid-Atlantic", "Costa atlántica media"], south: ["South", "Sur"], mw: ["Midwest", "Medio Oeste"], west: ["West Coast", "Costa Oeste"], abroad: ["Abroad", "En el extranjero"], online: ["Online", "En línea"], varies: ["Multiple sites", "Varias sedes"] };
+const FMTS = { r: ["Residential", "Residencial"], c: ["Commuter", "Sin alojamiento"], o: ["Online", "En línea"] };
+const LENS = { "1w": ["1 week", "1 semana"], "2w": ["2 weeks", "2 semanas"], "3w": ["3 weeks", "3 semanas"], "4w": ["4 weeks", "4 semanas"], "5w+": ["5+ weeks", "5+ semanas"], varies: ["Length varies", "Duración variable"], flex: ["Self-paced", "A tu ritmo"] };
+const COST = { free: ["No cost", "Sin costo"], paid: ["Stipend / paid", "Con estipendio"] };
+const T = {
+  en: {
+    district: "Byram Hills High School · School Counseling",
+    title: "Summer Opportunities for High School Students",
+    subtitle: "A directory of pre-college, arts, STEM, leadership, research, internship, and adventure programs.",
+    howTitle: "How to use this directory",
+    howBody: "Programs are grouped by area of interest. Each entry lists the eligible grade levels, where the program takes place, whether students live on campus or commute, and how long it runs. Program details and deadlines change every year — confirm everything on the program's own website before applying, and talk with your school counselor about cost, fit, and financial aid.",
+    contents: "Contents",
+    planTitle: "When to Apply",
+    counselorTitle: "Talk with your counselor",
+    counselorBody: "Your school counselor can help you weigh cost, fit, and how a summer program supports your academic plan. Stop by the Guidance Office or email your counselor to set up a time.",
+    footerLeft: "Byram Hills High School · School Counseling",
+    footerRight: "Confirm all details on each program's website"
+  },
+  es: {
+    district: "Byram Hills High School · Consejería Escolar",
+    title: "Oportunidades de verano para estudiantes de secundaria",
+    subtitle: "Directorio de programas preuniversitarios, de artes, STEM, liderazgo, investigación, prácticas y aventura.",
+    howTitle: "Cómo usar este directorio",
+    howBody: "Los programas están agrupados por área de interés. Cada entrada indica los grados elegibles, dónde se realiza el programa, si el estudiante vive en el campus o viaja a diario, y cuánto dura. Los detalles y los plazos cambian cada año: confirme todo en el sitio web del programa antes de solicitar y hable con su consejero escolar sobre el costo, la afinidad y la ayuda financiera.",
+    contents: "Contenido",
+    planTitle: "Cuándo solicitar",
+    counselorTitle: "Hable con su consejero",
+    counselorBody: "Su consejero escolar puede ayudarle a valorar el costo, la afinidad y cómo un programa de verano apoya su plan académico. Visite la Oficina de Consejería o escriba a su consejero para agendar una cita.",
+    footerLeft: "Byram Hills High School · Consejería Escolar",
+    footerRight: "Confirme los detalles en el sitio de cada programa"
+  }
+};
+const TIMELINE = {
+  en: [
+    ["September – October", "Start a shortlist. Browse by interest and note 6–10 programs you would genuinely enjoy."],
+    ["November – December", "Check each program's website for the application opening date, cost, and financial aid. Ask a teacher early if a recommendation is required."],
+    ["January – February", "Most applications open. Selective research programs and the service academies close earliest."],
+    ["February – March", "Submit. Many pre-college programs admit on a rolling basis, so applying earlier is stronger — especially for housing."],
+    ["April – May", "Confirm your spot, pay deposits, complete health and travel forms, and arrange transportation."],
+    ["June – August", "Attend. Keep notes and contacts; they are useful for college essays and future recommendations."]
+  ],
+  es: [
+    ["Septiembre – octubre", "Empiece una lista. Explore por interés y anote de 6 a 10 programas que realmente disfrutaría."],
+    ["Noviembre – diciembre", "Revise en cada sitio la fecha de apertura de solicitudes, el costo y la ayuda financiera. Pida con tiempo una recomendación si es necesaria."],
+    ["Enero – febrero", "Se abren la mayoría de las solicitudes. Los programas de investigación selectivos y las academias militares cierran primero."],
+    ["Febrero – marzo", "Envíe la solicitud. Muchos programas admiten por orden de llegada, así que conviene apurarse, sobre todo por el alojamiento."],
+    ["Abril – mayo", "Confirme el lugar, pague los depósitos, complete formularios médicos y de viaje y organice el transporte."],
+    ["Junio – agosto", "Asista. Guarde notas y contactos: sirven para los ensayos universitarios y futuras recomendaciones."]
+  ]
+};
+
+class Component extends DCLogic {
+  state = { progs: [] };
+  componentDidMount() {
+    Promise.all([
+      import("./data/programs-a.js"), import("./data/programs-b.js"), import("./data/programs-c.js")
+    ]).then(mods => {
+      const all = mods.flatMap(m => m.default);
+      all.sort((a, b) => a.s.localeCompare(b.s, "en"));
+      this.setState({ progs: all });
+    }).catch(e => console.error("program data failed to load", e));
+  }
+  renderVals() {
+    const lang = this.props.docLang === "es" ? "es" : "en";
+    const i = lang === "es" ? 1 : 0;
+    const t = T[lang];
+    const gradeWord = lang === "es" ? "Grados " : "Grades ";
+    const sections = CATS.map(c => ({
+      label: c[i + 1],
+      items: this.state.progs.filter(p => p.cat === c[0]).map(p => {
+        const bits = [/\d/.test(p.gl) && !/Age/.test(p.gl) ? gradeWord + p.gl : p.gl];
+        bits.push((p.f || []).map(f => FMTS[f][i]).join(" / "));
+        bits.push(LOCS[p.loc][i]);
+        bits.push(LENS[p.len][i]);
+        if (p.cost) bits.push(COST[p.cost][i]);
+        if (p.deadline) bits.push(p.deadline);
+        return { s: p.s, url: p.url, desc: lang === "es" ? p.es : p.en, meta: bits.filter((v, i, a) => v && a.indexOf(v) === i).join(" · ") };
+      })
+    })).filter(s => s.items.length > 0);
+    return {
+      t: t,
+      sections: sections,
+      toc: sections.map(s => ({ label: s.label, count: s.items.length + (lang === "es" ? " programas" : " programs") })),
+      timeline: TIMELINE[lang].map(r => ({ when: r[0], what: r[1] }))
+    };
+  }
+}
+
+</script>
+</body>
+</html>

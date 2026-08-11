@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Summer Programs Quick Reference — Byram Hills High School School Counseling</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900&family=Merriweather:wght@400;700;900&display=swap" rel="stylesheet" />
+<style>
+  doc-page:not(:defined) { visibility: hidden; }
+  a { color: #1f4e8c; }
+  a:hover { color: #14284b; }
+</style>
+<script src="./doc-page.js"></script>
+</helmet>
+<doc-page size="letter">
+
+  <section class="page" style="font-family: Lato, Helvetica, Arial, sans-serif; color: #222c3a; padding: 0.5in 0.5in 0.4in; display: flex; flex-direction: column; gap: 16pt;">
+    <header style="display: flex; align-items: flex-end; justify-content: space-between; gap: 18pt; border-bottom: 4px solid #14284b; padding-bottom: 11pt;">
+      <div>
+        <div style="font-size: 8.5pt; font-weight: 900; letter-spacing: 0.2em; text-transform: uppercase; color: #1f4e8c; margin-bottom: 5pt;">{{ t.district }}</div>
+        <h1 style="font-family: Merriweather, Georgia, serif; font-size: 24pt; line-height: 1.1; margin: 0; color: #14284b;">{{ t.title }}</h1>
+      </div>
+      <a href="https://www.byramhills.org/guidance" style="flex: none; line-height: 0;"><img src="assets/bhhs-shield.png" alt="Byram Hills High School" style="display: block; height: 54pt; width: auto;" /></a>
+    </header>
+
+    <div style="font-size: 11pt; line-height: 1.5; color: #3c4759;">{{ t.intro }}</div>
+
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 11pt; flex: 1;">
+      <sc-for list="{{ cards }}" as="c" hint-placeholder-count="9">
+        <div style="border: 1px solid #d3dbe7; border-top: 4px solid #14284b; box-shadow: inset 0 -4px 0 0 #9e1b32; padding: 10pt 11pt 11pt; display: flex; flex-direction: column; gap: 6pt;">
+          <div style="font-family: Merriweather, Georgia, serif; font-size: 11.5pt; font-weight: 700; color: #14284b; line-height: 1.2;">{{ c.label }}</div>
+          <div style="font-size: 8.5pt; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; color: #9e1b32;">{{ c.count }}</div>
+          <ul style="margin: 0; padding-left: 11pt; font-size: 9.5pt; line-height: 1.45; color: #46536b;">
+            <sc-for list="{{ c.samples }}" as="s" hint-placeholder-count="5">
+              <li style="margin-bottom: 2pt;">{{ s }}</li>
+            </sc-for>
+          </ul>
+        </div>
+      </sc-for>
+    </div>
+
+    <footer style="border-top: 1px solid #d3dbe7; padding-top: 8pt; font-size: 9pt; color: #6b7789; display: flex; justify-content: space-between; gap: 14pt;">
+      <span>{{ t.footerLeft }}</span>
+      <span>{{ t.flip }}</span>
+    </footer>
+  </section>
+
+  <section class="page" style="font-family: Lato, Helvetica, Arial, sans-serif; color: #222c3a; padding: 0.5in 0.5in 0.4in; display: flex; flex-direction: column; gap: 15pt;">
+    <h2 style="font-family: Merriweather, Georgia, serif; font-size: 19pt; margin: 0; color: #14284b; border-bottom: 4px solid #14284b; padding-bottom: 9pt;">{{ t.planTitle }}</h2>
+
+    <table style="width: 100%; border-collapse: collapse; font-size: 10.5pt;">
+      <sc-for list="{{ timeline }}" as="m" hint-placeholder-count="6">
+        <tr>
+          <td style="width: 112pt; padding: 7pt 12pt 7pt 0; vertical-align: top; font-weight: 900; color: #1f4e8c; border-bottom: 1px solid #e6ebf2;">{{ m.when }}</td>
+          <td style="padding: 7pt 0; vertical-align: top; line-height: 1.45; color: #3c4759; border-bottom: 1px solid #e6ebf2;">{{ m.what }}</td>
+        </tr>
+      </sc-for>
+    </table>
+
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 11pt;">
+      <sc-for list="{{ steps }}" as="s" hint-placeholder-count="3">
+        <div style="background: #f2f5f9; border-left: 4px solid #9e1b32; padding: 10pt 11pt;">
+          <div style="font-family: Merriweather, Georgia, serif; font-size: 15pt; font-weight: 900; color: #c8455a; line-height: 1;">{{ s.n }}</div>
+          <div style="font-size: 11pt; font-weight: 900; color: #14284b; margin: 4pt 0 3pt;">{{ s.h }}</div>
+          <div style="font-size: 10pt; line-height: 1.45; color: #46536b;">{{ s.b }}</div>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="background: #14284b; color: #fff; padding: 15pt 17pt; display: flex; gap: 18pt; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+      <div>
+        <div style="font-family: Merriweather, Georgia, serif; font-size: 13pt; margin-bottom: 4pt;">{{ t.onlineTitle }}</div>
+        <div style="font-size: 10.5pt; line-height: 1.45; color: #cfe0f3; max-width: 44ch;">{{ t.onlineBody }}</div>
+      </div>
+      <div style="font-size: 11.5pt; font-weight: 900; letter-spacing: 0.02em; border: 2px solid #c8455a; padding: 8pt 13pt; color: #fff; white-space: nowrap;">byramhills.org/guidance</div>
+    </div>
+
+    <div style="flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 14pt; align-items: start;">
+      <div style="border: 1px solid #d3dbe7; padding: 12pt 13pt;">
+        <div style="font-family: Merriweather, Georgia, serif; font-size: 12pt; font-weight: 700; color: #14284b; margin-bottom: 5pt;">{{ t.counselorTitle }}</div>
+        <div style="font-size: 10.5pt; line-height: 1.5; color: #3c4759;">{{ t.counselorBody }}</div>
+      </div>
+      <div style="border: 1px solid #d3dbe7; padding: 12pt 13pt;">
+        <div style="font-family: Merriweather, Georgia, serif; font-size: 12pt; font-weight: 700; color: #14284b; margin-bottom: 5pt;">{{ t.costTitle }}</div>
+        <div style="font-size: 10.5pt; line-height: 1.5; color: #3c4759;">{{ t.costBody }}</div>
+      </div>
+    </div>
+
+    <footer style="border-top: 1px solid #d3dbe7; padding-top: 8pt; font-size: 9pt; color: #6b7789;">{{ t.footerLeft }} · 12 Tripp Lane, Armonk, NY 10504 · (914) 273-9200</footer>
+  </section>
+</doc-page>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;docLang&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;en&quot;,&quot;es&quot;],&quot;default&quot;:&quot;en&quot;,&quot;tsType&quot;:&quot;\&quot;en\&quot; | \&quot;es\&quot;&quot;,&quot;section&quot;:&quot;Language&quot;}}">
+const CATS = [
+  ["academics", "College Academics", "Académicos universitarios"],
+  ["arts", "Visual & Performing Arts", "Artes visuales y escénicas"],
+  ["stem", "STEM & Medicine", "STEM y medicina"],
+  ["writing", "Writing & Journalism", "Escritura y periodismo"],
+  ["research", "Research", "Investigación"],
+  ["internships", "Internships", "Prácticas profesionales"],
+  ["leadership", "Leadership", "Liderazgo"],
+  ["language", "Language", "Idiomas"],
+  ["adventure", "Special Interests & Adventure", "Intereses especiales y aventura"]
+];
+const T = {
+  en: {
+    district: "Byram Hills High School · School Counseling",
+    title: "Summer Opportunities at a Glance",
+    intro: "More than 140 summer programs for high school students, grouped by area of interest. A few examples are shown in each area — the full directory and the searchable finder list every program, with grade levels, locations, length, and links.",
+    flip: "Turn over for the application timeline →",
+    footerLeft: "Byram Hills High School · School Counseling",
+    planTitle: "When to Apply",
+    onlineTitle: "Search all 140+ programs online",
+    onlineBody: "Filter by college, area of interest, grade level, location, and length. Save a shortlist and print it for your counselor meeting. Available in English and Spanish.",
+    counselorTitle: "Talk with your counselor",
+    counselorBody: "Your school counselor can help you weigh cost, fit, and how a summer program supports your academic plan. Stop by the Guidance Office or email to set up a time.",
+    costTitle: "Cost and financial aid",
+    costBody: "Programs range from free and stipend-paid to several thousand dollars. Many offer need-based aid that is not advertised prominently — ask the program directly, and ask your counselor about local scholarships."
+  },
+  es: {
+    district: "Byram Hills High School · Consejería Escolar",
+    title: "Oportunidades de verano de un vistazo",
+    intro: "Más de 140 programas de verano para estudiantes de secundaria, agrupados por área de interés. Aquí se muestran algunos ejemplos; el directorio completo y el buscador en línea incluyen todos los programas con grados, ubicación, duración y enlaces.",
+    flip: "Al reverso: calendario de solicitudes →",
+    footerLeft: "Byram Hills High School · Consejería Escolar",
+    planTitle: "Cuándo solicitar",
+    onlineTitle: "Busque los más de 140 programas en línea",
+    onlineBody: "Filtre por universidad, área de interés, grado, ubicación y duración. Guarde una lista e imprímala para su reunión con el consejero. Disponible en inglés y español.",
+    counselorTitle: "Hable con su consejero",
+    counselorBody: "Su consejero escolar puede ayudarle a valorar el costo, la afinidad y cómo un programa apoya su plan académico. Visite la Oficina de Consejería o escriba para agendar una cita.",
+    costTitle: "Costo y ayuda financiera",
+    costBody: "Los programas van desde gratuitos o con estipendio hasta varios miles de dólares. Muchos ofrecen ayuda según necesidad que no se anuncia claramente: pregunte directamente al programa y a su consejero sobre becas locales."
+  }
+};
+const TIMELINE = {
+  en: [
+    ["Sept – Oct", "Start a shortlist. Browse by interest and note 6–10 programs you would genuinely enjoy."],
+    ["Nov – Dec", "Check each website for the application opening date, cost, and financial aid. Ask a teacher early if a recommendation is required."],
+    ["Jan – Feb", "Most applications open. Selective research programs and the service academies close earliest."],
+    ["Feb – Mar", "Submit. Many programs admit on a rolling basis, so applying earlier is stronger — especially for housing."],
+    ["Apr – May", "Confirm your spot, pay deposits, complete health and travel forms, arrange transportation."],
+    ["Jun – Aug", "Attend. Keep notes and contacts; they help with college essays and recommendations."]
+  ],
+  es: [
+    ["Sep – oct", "Empiece una lista. Explore por interés y anote de 6 a 10 programas que realmente disfrutaría."],
+    ["Nov – dic", "Revise en cada sitio la apertura de solicitudes, el costo y la ayuda financiera. Pida con tiempo una recomendación si hace falta."],
+    ["Ene – feb", "Se abren la mayoría de las solicitudes. Los programas de investigación selectivos y las academias militares cierran primero."],
+    ["Feb – mar", "Envíe la solicitud. Muchos programas admiten por orden de llegada; conviene apurarse, sobre todo por el alojamiento."],
+    ["Abr – may", "Confirme el lugar, pague depósitos, complete formularios médicos y de viaje, organice el transporte."],
+    ["Jun – ago", "Asista. Guarde notas y contactos: ayudan con los ensayos universitarios y las recomendaciones."]
+  ]
+};
+const STEPS = {
+  en: [
+    ["1", "Pick an interest", "Choose one of the nine areas, or search a college by name."],
+    ["2", "Narrow it down", "Filter by grade level, residential or commuter, location, and how many weeks."],
+    ["3", "Save and share", "Bookmark programs to your list, then print it for a counselor or parent."]
+  ],
+  es: [
+    ["1", "Elija un interés", "Escoja una de las nueve áreas o busque una universidad por su nombre."],
+    ["2", "Acote la búsqueda", "Filtre por grado, residencial o sin alojamiento, ubicación y número de semanas."],
+    ["3", "Guarde y comparta", "Marque programas en su lista e imprímala para el consejero o su familia."]
+  ]
+};
+
+class Component extends DCLogic {
+  state = { progs: [] };
+  componentDidMount() {
+    Promise.all([
+      import("./data/programs-a.js"), import("./data/programs-b.js"), import("./data/programs-c.js")
+    ]).then(mods => {
+      const all = mods.flatMap(m => m.default);
+      all.sort((a, b) => a.s.localeCompare(b.s, "en"));
+      this.setState({ progs: all });
+    }).catch(e => console.error("program data failed to load", e));
+  }
+  renderVals() {
+    const lang = this.props.docLang === "es" ? "es" : "en";
+    const i = lang === "es" ? 2 : 1;
+    const t = T[lang];
+    const cards = CATS.map(c => {
+      const items = this.state.progs.filter(p => p.cat === c[0]);
+      return {
+        label: c[i],
+        count: items.length + (lang === "es" ? " programas" : " programs"),
+        samples: items.slice(0, 5).map(p => p.s)
+      };
+    });
+    return {
+      t: t, cards: cards,
+      timeline: TIMELINE[lang].map(r => ({ when: r[0], what: r[1] })),
+      steps: STEPS[lang].map(r => ({ n: r[0], h: r[1], b: r[2] }))
+    };
+  }
+}
+
+</script>
+</body>
+</html>
